@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>残疾人求职简历填写</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top"><span class="brand-mark">祈</span><span>祈信就业服务</span></a>
+      <div class="header-note">求职者信息仅用于招聘服务，请如实填写</div>
+      <button id="previewTop" class="button button-primary">预览简历</button>
+    </header>
+
+    <main id="top" class="app-shell">
+      <section class="intro">
+        <p class="eyebrow">JOB SEEKER PROFILE</p>
+        <h1>填写一份属于你的求职简历</h1>
+        <p>按提示录入信息，填写完成后可预览简历，并一键保存为 PDF 文件。</p>
+      </section>
+
+      <div class="workspace">
+        <form id="resumeForm" class="form-panel" novalidate>
+          <div class="form-panel-heading">
+            <span class="step-dot">01</span>
+            <div><h2>个人资料</h2><p>标有 <b>*</b> 的信息为必填项</p></div>
+          </div>
+
+          <fieldset>
+            <legend>基本信息</legend>
+            <div class="fields two-cols">
+              <label>姓名 <b>*</b><input name="name" placeholder="请输入姓名" required /></label>
+              <label>性别 <b>*</b><select name="gender" required><option value="">请选择</option><option>男</option><option>女</option></select></label>
+              <label>出生日期 <input name="birthDate" type="date" /></label>
+              <label>联系电话 <b>*</b><input name="phone" type="tel" inputmode="numeric" placeholder="请输入手机号" required /></label>
+              <label>婚姻状态 <select name="maritalStatus"><option value="">请选择</option><option>未婚</option><option>已婚</option><option>离异</option><option>其他</option></select></label>
+              <label>学历 <select name="education"><option value="">请选择</option><option>初中及以下</option><option>高中/中专</option><option>大专</option><option>本科</option><option>硕士及以上</option></select></label>
+              <label>毕业院校 <input name="school" placeholder="如：重庆大学" /></label>
+              <label>户籍 <b>*</b><select name="hukou" required><option value="">请选择省份或直辖市</option><option>北京市</option><option>天津市</option><option>河北省</option><option>山西省</option><option>内蒙古自治区</option><option>辽宁省</option><option>吉林省</option><option>黑龙江省</option><option>上海市</option><option>江苏省</option><option>浙江省</option><option>安徽省</option><option>福建省</option><option>江西省</option><option>山东省</option><option>河南省</option><option>湖北省</option><option>湖南省</option><option>广东省</option><option>广西壮族自治区</option><option>海南省</option><option>重庆市</option><option>四川省</option><option>贵州省</option><option>云南省</option><option>西藏自治区</option><option>陕西省</option><option>甘肃省</option><option>青海省</option><option>宁夏回族自治区</option><option>新疆维吾尔自治区</option><option>台湾省</option><option>香港特别行政区</option><option>澳门特别行政区</option></select></label>
+            </div>
+            <label>身份证号 <b>*</b><input name="idNumber" placeholder="请输入身份证号" required /></label>
+            <label>现居住地址 <b>*</b><input name="address" placeholder="请输入详细地址" required /></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>照片与紧急联系人</legend>
+            <div class="photo-upload">
+              <label class="photo-picker" for="photo"><span>＋</span><strong>上传一寸照片</strong><small>JPG、PNG 均可</small></label>
+              <input id="photo" name="photo" type="file" accept="image/*" />
+            </div>
+            <div class="fields two-cols">
+              <label>紧急联系人 <b>*</b><input name="emergencyName" placeholder="请输入姓名" required /></label>
+              <label>联系电话 <b>*</b><input name="emergencyPhone" type="tel" placeholder="请输入电话" required /></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>社保与残疾信息</legend>
+            <div class="fields two-cols">
+              <label>首次参保年月 <b>*</b><input name="insuranceDate" type="month" required /></label>
+              <label>参保累计月数 <b>*</b><input name="insuranceMonths" type="number" min="0" placeholder="如：36" required /></label>
+              <label>残疾类型 <b>*</b><select name="disabilityType" required><option value="">请选择</option><option>视力残疾</option><option>听力残疾</option><option>言语残疾</option><option>肢体残疾</option><option>智力残疾</option><option>精神残疾</option><option>多重残疾</option><option>其他</option></select></label>
+              <label>残疾等级 <b>*</b><select name="disabilityLevel" required><option value="">请选择</option><option>一级</option><option>二级</option><option>三级</option><option>四级</option></select></label>
+            </div>
+            <label>残疾证号 <b>*</b><input name="disabilityId" placeholder="请输入残疾证号" required /></label>
+          </fieldset>
+
+          <fieldset>
+            <div class="legend-row"><legend>工作经历</legend><button id="addExperience" type="button" class="text-button">＋ 添加经历</button></div>
+            <div id="experienceFields"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>电子承诺</legend>
+            <label>申请人电子签名 <b>*</b><input name="signature" placeholder="请输入本人姓名" required /></label>
+            <p class="consent"><input id="consent" type="checkbox" required /><label for="consent">我确认以上填写信息真实有效，并同意用于求职招聘服务。</label></p>
+          </fieldset>
+          <div class="form-actions"><button type="reset" class="button button-quiet">清空重填</button><button type="button" id="previewButton" class="button button-secondary">预览简历</button><button type="button" id="downloadButton" class="button button-primary">生成并保存 PDF</button></div>
+        </form>
+      </div>
+    </main>
+
+    <div id="previewModal" class="preview-modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="resumePreviewTitle">
+        <div class="modal-toolbar">
+          <div><span class="preview-status"><i></i>简历预览</span><span id="saveState">已自动保存</span></div>
+          <div class="modal-actions"><button id="modalDownload" class="button button-primary">保存 PDF</button><button type="button" class="icon-button" data-close-modal aria-label="关闭预览">×</button></div>
+        </div>
+        <div class="preview-stage">
+          <article id="resumePreview" class="resume-sheet">
+            <div class="resume-topline"></div>
+            <header class="resume-header"><div><p>PERSONAL RESUME</p><h1 id="resumePreviewTitle">残疾人求职简历</h1></div><div id="previewPhoto" class="resume-photo">照片</div></header>
+            <section class="resume-section personal"><h2>基本信息</h2><dl class="info-grid"><div><dt>姓 名</dt><dd data-output="name">—</dd></div><div><dt>性 别</dt><dd data-output="gender">—</dd></div><div><dt>出生日期</dt><dd data-output="birthDate">—</dd></div><div><dt>年 龄</dt><dd data-output="age">—</dd></div><div><dt>联系电话</dt><dd data-output="phone">—</dd></div><div><dt>婚姻状态</dt><dd data-output="maritalStatus">—</dd></div><div><dt>学 历</dt><dd data-output="education">—</dd></div><div><dt>毕业院校</dt><dd data-output="school">—</dd></div><div><dt>户 籍</dt><dd data-output="hukou">—</dd></div><div class="wide"><dt>身份证号</dt><dd data-output="idNumber">—</dd></div><div class="wide"><dt>现居住地址</dt><dd data-output="address">—</dd></div></dl></section>
+            <section class="resume-section"><h2>联系与参保信息</h2><dl class="info-grid"><div><dt>紧急联系人</dt><dd data-output="emergencyName">—</dd></div><div><dt>联系电话</dt><dd data-output="emergencyPhone">—</dd></div><div><dt>首次参保日期</dt><dd data-output="insuranceDate">—</dd></div><div><dt>参保累计月数</dt><dd><span data-output="insuranceMonths">—</span><span class="suffix"> 月</span></dd></div></dl></section>
+            <section class="resume-section"><h2>残疾信息</h2><dl class="info-grid"><div><dt>残疾类型</dt><dd data-output="disabilityType">—</dd></div><div><dt>残疾等级</dt><dd data-output="disabilityLevel">—</dd></div><div class="wide"><dt>残疾证号</dt><dd data-output="disabilityId">—</dd></div></dl></section>
+            <section class="resume-section"><h2>工作经历</h2><div id="previewExperiences" class="experience-preview"><p class="empty-experience">暂未填写工作经历</p></div></section>
+            <footer class="resume-footer"><p>本人承诺以上信息真实有效，如有不实，愿承担相应责任。</p><div><span>申请人签字（电子签名）：<b data-output="signature">—</b></span><span>日期：<b id="resumeDate">—</b></span></div></footer>
+          </article>
+        </div>
+      </section>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+    <template id="experienceTemplate"><div class="experience-entry"><div class="experience-title"><strong>工作经历 <span class="experience-number"></span></strong><button type="button" class="remove-experience">删除</button></div><div class="fields two-cols"><label>起止时间 <input class="experience-period" placeholder="如：2023.03 — 2025.06" /></label><label>工作单位 <input class="experience-company" placeholder="请输入单位名称" /></label></div><label>职务 / 岗位 <input class="experience-role" placeholder="请输入职务或岗位" /></label></div></template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
